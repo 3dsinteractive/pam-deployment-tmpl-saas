@@ -97,3 +97,47 @@ spec:
       port: 3888
       protocol: TCP
   clusterIP: None
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: neptune01-<name>
+  namespace: <namespace>
+  labels:
+    name: neptune01-<name>
+spec:
+  selector:
+    name: <name>
+  ports:
+    - name: zk2181
+      port: 2181
+      protocol: TCP
+    - name: zk2888
+      port: 2888
+      protocol: TCP
+    - name: zk3888
+      port: 3888
+      protocol: TCP
+  clusterIP: None
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: neptune02-<name>
+  namespace: <namespace>
+  labels:
+    name: neptune02-<name>
+spec:
+  selector:
+    name: <name>
+  ports:
+    - name: zk2181
+      port: 2181
+      protocol: TCP
+    - name: zk2888
+      port: 2888
+      protocol: TCP
+    - name: zk3888
+      port: 3888
+      protocol: TCP
+  clusterIP: None

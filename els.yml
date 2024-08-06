@@ -113,3 +113,41 @@ spec:
       port: 9200
       protocol: TCP
   clusterIP: None
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: neptune01-<name>
+  namespace: <namespace>
+  labels:
+    name: neptune01-<name>
+spec:
+  selector:
+    name: <name>
+  ports:
+    - name: els9300
+      port: 9300
+      protocol: TCP
+    - name: els9200
+      port: 9200
+      protocol: TCP
+  clusterIP: None
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: neptune02-<name>
+  namespace: <namespace>
+  labels:
+    name: neptune02-<name>
+spec:
+  selector:
+    name: <name>
+  ports:
+    - name: els9300
+      port: 9300
+      protocol: TCP
+    - name: els9200
+      port: 9200
+      protocol: TCP
+  clusterIP: None

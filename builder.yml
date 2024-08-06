@@ -86,3 +86,35 @@ spec:
     protocol: TCP
   selector:
     name: <name>
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: neptune01-<name>
+  namespace: <namespace>
+  labels:
+    name: neptune01-<name>
+spec:
+  ports:
+  - port: 8080
+    name: builder8080
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    name: <name>
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: neptune02-<name>
+  namespace: <namespace>
+  labels:
+    name: neptune02-<name>
+spec:
+  ports:
+  - port: 8080
+    name: builder8080
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    name: <name>
